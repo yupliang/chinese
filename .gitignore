@@ -1,0 +1,14 @@
+# Cocos Creator
+library/
+temp/
+local/
+build/
+profiles/
+native/
+
+# NPM / IDE
+node_modules/
+.vscode/
+.idea/
+.DS_Store
+*.log
