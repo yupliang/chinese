@@ -27,7 +27,7 @@ export class gg extends Component {
     callBackBtn(event:Event,str:string){
 
         if (str == 'btn_gg') {
-            if (this.node.name == 'gg_hzzg') {//汉字找梗
+            if (this.node.name == 'gg_hzzg') {//找梗汉字局（原卖家导流位，抖音侧已禁用）
                 AdMgr.goSelf('wxda028206dba66eb2')
             }else if (this.node.name == 'gg_xlgq') {
                 AdMgr.goSelf('wx221c26558d67126a')

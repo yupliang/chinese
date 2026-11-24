@@ -1,8 +1,9 @@
-# 汉字找梗
+# 找梗汉字局
 
 汉字休闲合集（找梗 / 找不同 / 找字等）· 抖音小游戏 IAA · Cocos Creator **3.8.8**
 
-正式名（软著 / 提审 / 包内）：**汉字找梗**
+正式名（软著 / 提审 / 包内）：**找梗汉字局**  
+AppID：`tt4b823d3fd5f0de0c02`
 
 ## 分支
 
@@ -18,7 +19,7 @@
 ## 抖音小游戏构建
 
 1. 菜单 **项目 → 构建发布** → 平台选 **抖音小游戏**  
-2. 填 AppID（可参考根目录 `build-config-bytedance-mini-game.json`）  
+2. AppID 填 `tt4b823d3fd5f0de0c02`（与 `build-config-bytedance-mini-game.json` 一致）  
 3. 构建后用 **抖音开发者工具** 打开 `build/bytedance-mini-game`  
 4. 流量主开通前保持 `Global.dyMockAds = true`；开通后：
 
@@ -32,7 +33,7 @@ Global.idInterstitial = '你的插屏广告位ID'; // 可选
 
 ## 提审前检查（已约定）
 
-- [ ] 游戏名 / 软著名均为「汉字找梗」  
+- [ ] 游戏名 / 软著名均为「找梗汉字局」  
 - [ ] TipView 等处无卖家 QQ/微信水印  
 - [ ] 市面同皮未大量撞车  
 - [ ] 激励视频在真机可调起（或 mock 已关且广告位有效）

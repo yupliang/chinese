@@ -65,11 +65,11 @@ export const events = {
 export class Global {
 
     /** 正式名：软著 / 提审 / 包内标题统一用此名 */
-    static gameTitle = '汉字找梗';
+    static gameTitle = '找梗汉字局';
 
     static shares = [// 分享文案（抖音 / 微信）
         {
-            shareText: '【有人@我】来「汉字找梗」帮我找出所有的热梗...',
+            shareText: '【有人@我】来「找梗汉字局」帮我找出所有的热梗...',
             shareId: '',
             shareLink: '',
         },

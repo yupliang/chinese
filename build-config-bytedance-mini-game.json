@@ -1,5 +1,5 @@
 {
-  "name": "汉字找梗",
+  "name": "找梗汉字局",
   "platform": "bytedance-mini-game",
   "buildPath": "project://build",
   "debug": true,
@@ -9,7 +9,7 @@
   "outputName": "bytedance-mini-game",
   "packages": {
     "bytedance-mini-game": {
-      "appid": "YOUR_DOUYIN_APPID",
+      "appid": "tt4b823d3fd5f0de0c02",
       "orientation": "portrait"
     }
   }
