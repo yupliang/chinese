@@ -1,0 +1,16 @@
+{
+  "name": "汉字找梗",
+  "platform": "bytedance-mini-game",
+  "buildPath": "project://build",
+  "debug": true,
+  "md5Cache": false,
+  "replaceSplashScreen": false,
+  "startScene": "1cff0bb5-a284-4176-ad5c-f342931fb29f",
+  "outputName": "bytedance-mini-game",
+  "packages": {
+    "bytedance-mini-game": {
+      "appid": "YOUR_DOUYIN_APPID",
+      "orientation": "portrait"
+    }
+  }
+}

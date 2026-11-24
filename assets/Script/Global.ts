@@ -64,22 +64,32 @@ export const events = {
 
 export class Global {
 
-    static shares = [//微信分享
+    /** 正式名：软著 / 提审 / 包内标题统一用此名 */
+    static gameTitle = '汉字找梗';
+
+    static shares = [// 分享文案（抖音 / 微信）
         {
-            shareText:'【有人@我】帮我找出所有的热梗...',//标题
-            shareId:'',
-            shareLink:''//分享图片链接
+            shareText: '【有人@我】来「汉字找梗」帮我找出所有的热梗...',
+            shareId: '',
+            shareLink: '',
         },
     ]
 
-    static idBanner = 'adunit-d8147e4cc5c5ae3c'//Banner广告位id
-    static idInterstitial = 'adunit-1fc4df0f7f6f2fb3'//插屏广告位id
-    static idVideo = 'adunit-6c4f7fba7f8ac821'//激励视频广告位id
-    static idCustom1_1 = 'adunit-3bd065c5f30207a1'//单格子
-    static idCustom1_2 = 'adunit-952039134ab27045'//单格子
-    static idCustom3_1 = 'adunit-15a15ae8dc60a6b0'//多格子-三个
-    static idCustom4 = 'adunit-79cc10eec8416b61'//矩阵格子-4行
-    static idCustom5 = 'adunit-3e70d615782ae047'//矩阵格子-5行
+    /**
+     * 抖音流量主广告位。开通后填入真实 ID，并把 dyMockAds 设为 false。
+     * 原卖家微信 adunit 已废弃，勿再使用。
+     */
+    static dyMockAds = true;
+    static idBanner = '';
+    static idInterstitial = '';
+    static idVideo = '';
+
+    /** 微信格子广告位（抖音分支不再使用，保留空串避免误调卖家账号） */
+    static idCustom1_1 = '';
+    static idCustom1_2 = '';
+    static idCustom3_1 = '';
+    static idCustom4 = '';
+    static idCustom5 = '';
 
 
 
