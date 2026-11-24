@@ -1,0 +1,19 @@
+{
+  "name": "找梗汉字局",
+  "platform": "wechatgame",
+  "buildPath": "project://build",
+  "debug": true,
+  "md5Cache": false,
+  "replaceSplashScreen": false,
+  "startScene": "1cff0bb5-a284-4176-ad5c-f342931fb29f",
+  "outputName": "wechatgame",
+  "packages": {
+    "wechatgame": {
+      "appid": "YOUR_WECHAT_APPID",
+      "orientation": "portrait",
+      "separateEngine": false,
+      "highPerformanceMode": false,
+      "buildOpenDataContextTemplate": false
+    }
+  }
+}

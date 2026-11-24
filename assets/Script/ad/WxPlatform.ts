@@ -6,7 +6,7 @@ import { director } from "cc";
 export class WxPlatform {
 
     static _ins: WxPlatform;
-    public wx = window["wx"];
+    public wx = typeof window !== 'undefined' ? window["wx"] : null;
 
     numCustomAd1_1: number;
     numCustomAd1_2: number;
@@ -25,6 +25,10 @@ export class WxPlatform {
         this._ins.init();
 
         return this._ins;
+    }
+
+    private get mockAds() {
+        return Global.wxMockAds || !Global.idVideo;
     }
 
     init() {
@@ -168,7 +172,7 @@ export class WxPlatform {
 
     showBanner(style = 2) {
 
-        if (!WECHAT) {
+        if (!WECHAT || this.mockAds || !Global.idBanner) {
 
             return;
 
@@ -315,7 +319,7 @@ export class WxPlatform {
     custom1_1: any;
     showCustomAd1_1(callback: Function) {
 
-        if (!WECHAT) {
+        if (!WECHAT || this.mockAds || !Global.idCustom1_1) {
 
             return;
 
@@ -376,7 +380,7 @@ export class WxPlatform {
     custom1_2: any;
     showCustomAd1_2(callback: Function) {
 
-        if (!WECHAT) {
+        if (!WECHAT || this.mockAds || !Global.idCustom1_2) {
 
             return;
 
@@ -445,7 +449,7 @@ export class WxPlatform {
     custom1: any;
     showCustomAd1(callback: Function) {
 
-        if (!WECHAT) {
+        if (!WECHAT || this.mockAds) {
 
             return;
 
@@ -495,7 +499,7 @@ export class WxPlatform {
     custom4: any;
     async showCustomAd4(callback: Function) {
 
-        if (!WECHAT) {
+        if (!WECHAT || this.mockAds || !Global.idCustom4) {
             return;
         }
 
@@ -581,7 +585,7 @@ export class WxPlatform {
     custom3_1: any;
     async showCustomAd3_1(callback: Function) {
 
-        if (!WECHAT) {
+        if (!WECHAT || this.mockAds || !Global.idCustom3_1) {
             return;
         }
 
@@ -640,7 +644,7 @@ export class WxPlatform {
 
     showInterstitialAd(delay = 0) {
 
-        if (!WECHAT) {
+        if (!WECHAT || this.mockAds || !Global.idInterstitial) {
             return;
         }
 
@@ -679,17 +683,30 @@ export class WxPlatform {
 
     showRewardVideo(callback?: Function) {
 
+        if (!WECHAT || this.mockAds) {
+            console.log('[WxPlatform] reward video mock');
+            callback && callback(Global.wxMockAds ? 1 : 2);
+            return;
+        }
+
         let my = this;
 
         let id = Global.idVideo
 
-        if (my.rewardVideo2 != null) {
-            my.rewardVideo2.offClose(fun);
-        }
         let rewardedVideoAd = this.wx.createRewardedVideoAd({
             adUnitId: id,
         });
         my.rewardVideo2 = rewardedVideoAd;
+        var fun = function (res) {
+            if (res && res.isEnded) {
+                console.log('res:  ', res);
+                callback && callback(1);
+                rewardedVideoAd.offClose(fun);
+            } else {
+                console.log('播放中途退出');
+                callback && callback(0);
+            }
+        }
         rewardedVideoAd.load().then(() => {
             this.wx.showToast({
 
@@ -732,18 +749,8 @@ export class WxPlatform {
                 complete: function () { }
 
             })
-            callback(2);
+            callback && callback(2);
         })
-        var fun = function (res) {
-            if (res && res.isEnded) {
-                console.log('res:  ', res);
-                callback(1);
-                rewardedVideoAd.offClose(fun);
-            } else {
-                console.log('播放中途退出');
-                callback(0);
-            }
-        }
         rewardedVideoAd.onClose(fun);
     }
 

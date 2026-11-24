@@ -76,15 +76,19 @@ export class Global {
     ]
 
     /**
-     * 抖音流量主广告位。开通后填入真实 ID，并把 dyMockAds 设为 false。
+     * 广告位：本分支目标为微信小游戏 IAA。
+     * 流量主开通前保持 wxMockAds=true；开通后填入自己的 adunit 并关 mock。
      * 原卖家微信 adunit 已废弃，勿再使用。
      */
+    static wxMockAds = true;
+    /** 抖音广告 mock（本分支非主路径，保留以免误构建抖音包卡死） */
     static dyMockAds = true;
+
     static idBanner = '';
     static idInterstitial = '';
     static idVideo = '';
 
-    /** 微信格子广告位（抖音分支不再使用，保留空串避免误调卖家账号） */
+    /** 微信格子广告（CustomAd）；无流量主前保持空 */
     static idCustom1_1 = '';
     static idCustom1_2 = '';
     static idCustom3_1 = '';

@@ -1,5 +1,4 @@
-import { _decorator, Component, Node, UIOpacity, Vec3, tween, Label } from 'cc';
-import { AdMgr } from './ad/AdMgr';
+import { _decorator, Component, Vec3, tween } from 'cc';
 import { Global } from './Global';
 const { ccclass, property } = _decorator;
 
@@ -27,11 +26,8 @@ export class gg extends Component {
     callBackBtn(event:Event,str:string){
 
         if (str == 'btn_gg') {
-            if (this.node.name == 'gg_hzzg') {//找梗汉字局（原卖家导流位，抖音侧已禁用）
-                AdMgr.goSelf('wxda028206dba66eb2')
-            }else if (this.node.name == 'gg_xlgq') {
-                AdMgr.goSelf('wx221c26558d67126a')
-            }
+            // 原卖家互推 AppID，上架前禁止跳转
+            return;
         }else if (str == 'btn_close') {
             this.node.scale = new Vec3(0,0,0)
             this.scheduleOnce(function(){
